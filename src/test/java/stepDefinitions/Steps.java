@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
+import dataProvider.ConfigFileReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import managers.PageObjectManager;
 import pageObjects.CartPage;
@@ -21,13 +22,15 @@ public class Steps {
 	CartPage cartPage;
 	CheckoutPage checkoutPage;
 	PageObjectManager pageObjectManager;
+	ConfigFileReader configFileReader;
 
 	@Given("^user is on Home Page$")
 	public void user_is_on_Home_Page() {
+		configFileReader = new ConfigFileReader();
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(configFileReader.getImplicitlyWait(), TimeUnit.SECONDS);
 		pageObjectManager = new PageObjectManager(driver);// will get null pointer exception without this step
 		homePage = pageObjectManager.getHomePage();
 		homePage.navigateTo_HomePage();
