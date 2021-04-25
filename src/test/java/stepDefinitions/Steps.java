@@ -9,6 +9,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import dataProvider.ConfigFileReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import managers.FileReaderManager;
 import managers.PageObjectManager;
 import pageObjects.CartPage;
 import pageObjects.CheckoutPage;
@@ -30,7 +31,8 @@ public class Steps {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(configFileReader.getImplicitlyWait(), TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(),
+				TimeUnit.SECONDS);
 		pageObjectManager = new PageObjectManager(driver);// will get null pointer exception without this step
 		homePage = pageObjectManager.getHomePage();
 		homePage.navigateTo_HomePage();

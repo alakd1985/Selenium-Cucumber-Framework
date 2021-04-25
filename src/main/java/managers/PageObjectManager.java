@@ -18,8 +18,6 @@ public class PageObjectManager {
 
 	private CheckoutPage checkoutPage;
 
-	// private ConfirmationPage confirmationPage;
-
 	public PageObjectManager(WebDriver driver) {
 
 		this.driver = driver;
