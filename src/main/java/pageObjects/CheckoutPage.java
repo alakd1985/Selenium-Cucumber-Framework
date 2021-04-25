@@ -125,17 +125,10 @@ public class CheckoutPage {
 		enter_LastName("Test");
 		enter_Phone("0000000000");
 		enter_Email("Automation@gmail.com");
-		/*
-		 * select_Country("India"); enter_City("Delhi"); enter_Address("Shalimar Bagh");
-		 * enter_PostCode("110088"); select_County("Delhi");
-		 */
 	}
 
 	public void fill_ShippingDetails() {
-		/*
-		 * enter_Name("Aotomation"); enter_LastName("Test"); enter_Phone("0000000000");
-		 * enter_Email("Automation@gmail.com");
-		 */
+
 		enter_Address("Shalimar Bagh");
 		enter_City("Delhi");
 		check_TermsAndCondition(true);

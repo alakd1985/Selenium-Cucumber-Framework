@@ -10,8 +10,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class ProductlistingPage {
-	public ProductlistingPage(WebDriver driver) {
+public class ProductListingPage {
+	public ProductListingPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 
