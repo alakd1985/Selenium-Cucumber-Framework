@@ -1,16 +1,12 @@
 package stepDefinitions;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import dataProvider.ConfigFileReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import managers.FileReaderManager;
 import managers.PageObjectManager;
+import managers.Webdrivermanager;
 import pageObjects.CartPage;
 import pageObjects.CheckoutPage;
 import pageObjects.HomePage;
@@ -24,19 +20,16 @@ public class Steps {
 	CheckoutPage checkoutPage;
 	PageObjectManager pageObjectManager;
 	ConfigFileReader configFileReader;
+	Webdrivermanager webDriverManager;
 
 	@Given("^user is on Home Page$")
 	public void user_is_on_Home_Page() {
-		configFileReader = new ConfigFileReader();
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(),
-				TimeUnit.SECONDS);
-		pageObjectManager = new PageObjectManager(driver);// will get null pointer exception without this step
+
+		webDriverManager = new Webdrivermanager();
+		driver = webDriverManager.getDriver();
+		pageObjectManager = new PageObjectManager(driver);
 		homePage = pageObjectManager.getHomePage();
 		homePage.navigateTo_HomePage();
-
 	}
 
 	@When("^he search for \"([^\"]*)\"$")
