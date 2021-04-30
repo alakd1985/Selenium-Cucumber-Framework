@@ -1,0 +1,38 @@
+[ 
+ {
+ "firstName": "Alak",
+ "lastName": "Dutta",
+ "age": 35,
+ "emailAddress": "abc@Gmail.com",
+ "address": {
+ "streetAddress": "Duke St",
+ "city": "Alexandria",
+ "postCode": "22304",
+ "state": "Alexandria",
+ "country": "United States (US)",
+ "county": "Virginia"
+ },
+ "phoneNumber": {
+ "home": "012345678",
+ "mob": "0987654321"
+ }
+ },
+ {
+ "firstName": "Toma",
+ "lastName": "Dutta",
+ "age": 26,
+ "emailAddress": "tdd@Gmail.com",
+ "address": {
+ "streetAddress": "Duke St",
+ "city": "Alexandria",
+ "postCode": "122345",
+ "state": "Alexandria",
+ "country": "United States (US)",
+ "county": "Virginia"
+ },
+ "phoneNumber": {
+ "home": "012345678",
+ "mob": "0987654321"
+ }
+ }
+]
