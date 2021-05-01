@@ -8,6 +8,7 @@ Feature: Automated E2E_Test
     And moves to checkout from mini cart
     And enter "<customer>" personal details on checkout page
     And place the order
+    Then verify the order details
 
     Examples: 
       | customer |

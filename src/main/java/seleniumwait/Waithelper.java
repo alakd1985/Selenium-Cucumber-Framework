@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import managers.FileReaderManager;
 
-public class Waitselenium {
+public class Waithelper {
 	public static void untilJqueryIsDone(WebDriver driver) {
 		untilJqueryIsDone(driver, FileReaderManager.getInstance().getConfigReader().getImplicitlyWait());
 	}
@@ -44,6 +44,7 @@ public class Waitselenium {
 	private static void until(WebDriver driver, Function<WebDriver, Boolean> waitCondition, Long timeoutInSeconds) {
 
 		WebDriverWait webDriverWait = new WebDriverWait(driver, timeoutInSeconds);
+
 		webDriverWait.withTimeout(timeoutInSeconds, TimeUnit.SECONDS);
 		try {
 			webDriverWait.until(waitCondition);

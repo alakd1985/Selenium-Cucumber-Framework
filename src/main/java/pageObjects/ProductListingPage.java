@@ -2,6 +2,7 @@ package pageObjects;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -11,6 +12,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class ProductListingPage {
+	WebDriver driver;
+
 	public ProductListingPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -32,6 +35,7 @@ public class ProductListingPage {
 
 	public void clickOn_AddToCart() {
 		btn_AddToCart.click();
+		// Waithelper.untilJqueryIsDone(driver);
 	}
 
 	public void clickOn_ViewCart() {
@@ -54,5 +58,9 @@ public class ProductListingPage {
 	public void select_DressColor() {
 		Select select = new Select(btn_Color);
 		select.selectByIndex(1);
+	}
+
+	public String getProductName(int productNumber) {
+		return prd_List.get(productNumber).findElement(By.xpath("h3")).getText();
 	}
 }

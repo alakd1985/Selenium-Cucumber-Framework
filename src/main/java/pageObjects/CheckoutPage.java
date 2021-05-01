@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import seleniumwait.Waitselenium;
+import seleniumwait.Waithelper;
 import testDataTypes.Customer;
 
 public class CheckoutPage {
@@ -88,7 +88,7 @@ public class CheckoutPage {
 		for (WebElement country : country_List) {
 			if (country.getText().equals(countryName)) {
 				country.click();
-				Waitselenium.untilJqueryIsDone(driver);
+				Waithelper.untilJqueryIsDone(driver);
 				break;
 			}
 		}
@@ -96,12 +96,12 @@ public class CheckoutPage {
 
 	public void select_County(String countyName) {
 		drpdwn_CountyDropDownArrow.click();
-		Waitselenium.untilJqueryIsDone(driver);
+		Waithelper.untilJqueryIsDone(driver);
 
 		for (WebElement county : country_List) {
 			if (county.getText().equals(countyName)) {
 				county.click();
-				Waitselenium.untilJqueryIsDone(driver);
+				Waithelper.untilJqueryIsDone(driver);
 				break;
 			}
 		}
@@ -114,6 +114,10 @@ public class CheckoutPage {
 
 	public void clickOn_PlaceOrder() {
 		btn_PlaceOrder.submit();
+		/*
+		 * Waithelper.untilJqueryIsDone(driver);
+		 * Waithelper.untilPageLoadComplete(driver);
+		 */
 	}
 
 	public void fill_PersonalDetails(Customer customer) {
