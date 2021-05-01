@@ -9,9 +9,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import seleniumwait.Waitselenium;
 import testDataTypes.Customer;
 
 public class CheckoutPage {
+	WebDriver driver;
+
 	public CheckoutPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -85,10 +88,7 @@ public class CheckoutPage {
 		for (WebElement country : country_List) {
 			if (country.getText().equals(countryName)) {
 				country.click();
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-				}
+				Waitselenium.untilJqueryIsDone(driver);
 				break;
 			}
 		}
@@ -96,18 +96,12 @@ public class CheckoutPage {
 
 	public void select_County(String countyName) {
 		drpdwn_CountyDropDownArrow.click();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-		}
+		Waitselenium.untilJqueryIsDone(driver);
 
 		for (WebElement county : country_List) {
 			if (county.getText().equals(countyName)) {
 				county.click();
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-				}
+				Waitselenium.untilJqueryIsDone(driver);
 				break;
 			}
 		}
